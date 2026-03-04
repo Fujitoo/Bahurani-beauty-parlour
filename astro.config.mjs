@@ -1,9 +1,8 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
-// TODO: Replace 'your-github-username' with your actual GitHub username
-// and 'bahurani-website' with your actual repository name
-const githubPagesBase = '/bahurani-website/';
+// GitHub Pages base path - matches repository name
+const githubPagesBase = '/Bahurani-beauty-parlour/';
 
 export default defineConfig({
   integrations: [tailwind()],
