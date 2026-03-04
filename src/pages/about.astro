@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const team = [
+  {
+    name: 'Basumati Verma',
+    role: 'Founder & Lead Artist',
+    bio: 'With over 10 years of experience in bridal and party makeup, Basumati has transformed hundreds of brides into their most beautiful selves.',
+    image: '/images/owner/basumati-verma.jpg'
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Senior Makeup Artist',
+    bio: 'Specializing in HD airbrush makeup and contemporary looks, Priya brings creativity and precision to every look.',
+    image: '/images/team/priya.jpg'
+  },
+  {
+    name: 'Anjali Singh',
+    role: 'Hair Styling Expert',
+    bio: 'Anjali is a master of traditional and modern hairstyles, from intricate bridal dos to effortless waves.',
+    image: '/images/team/anjali.jpg'
+  },
+];
+
+const milestones = [
+  { year: '2015', title: 'Started Journey', description: 'Opened first beauty parlour in Koilipul, Varanasi' },
+  { year: '2018', title: 'Expanded Services', description: 'Added bridal makeup and hair styling services' },
+  { year: '2020', title: 'Launched Academy', description: 'Started professional makeup training courses' },
+  { year: '2024', title: '500+ Happy Brides', description: 'Completed 500+ successful bridal makeovers' },
+];
+---
+
+<BaseLayout title="About Us | Bahurani Beauty Parlour Varanasi">
+  <Header />
+  
+  <main>
+    <!-- Page Header -->
+    <section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16 md:py-24">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">About Bahurani</h1>
+        <p class="text-lg text-primary-100 max-w-2xl mx-auto">
+          Your trusted beauty partner in Varanasi since 2015
+        </p>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-secondary-900 mb-6">
+              Our Story
+            </h2>
+            <div class="space-y-4 text-secondary-700">
+              <p>
+                <strong class="text-primary-600">Bahurani Beauty Parlour & Makeup Academy</strong> was founded in 2015 by
+                <strong class="text-primary-600">Basumati Verma</strong> with a simple mission: to help women in Varanasi
+                look and feel their most beautiful selves.
+              </p>
+              <p>
+                What started as a small beauty parlour in Koilipul has grown into a full-service beauty studio and
+                training academy, serving hundreds of satisfied clients every year.
+              </p>
+              <p>
+                We specialize in <strong class="text-primary-600">bridal makeup</strong>, <strong class="text-primary-600">party makeup</strong>,
+                <strong class="text-primary-600">hair styling</strong>, and <strong class="text-primary-600">professional makeup training</strong>.
+                Our team of expert artists uses only premium, skin-safe products to ensure you look flawless and feel confident.
+              </p>
+              <p>
+                At Bahurani, we believe that every woman deserves to feel beautiful. Whether you're a bride on your
+                special day, a student looking to start a career in makeup, or someone who wants to look their best
+                for a party – we're here to help you shine.
+              </p>
+            </div>
+          </div>
+          <div class="order-1 md:order-2">
+            <div class="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="/images/owner/basumati-verma.jpg"
+                alt="Basumati Verma - Founder and Lead Artist of Bahurani Beauty Parlour"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23fce7f3%22 width=%22400%22 height=%22400%22/%3E%3Ctext fill=%22%23db2777%22 font-family=%22sans-serif%22 font-size=%2280%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👩‍🎨%3C/text%3E%3C/svg%3E'"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Milestones Section -->
+    <section class="py-16 md:py-24 bg-primary-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Our Journey</h2>
+          <p class="section-subtitle">
+            From a small parlour to Varanasi's trusted beauty destination
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {milestones.map((milestone) => (
+            <div class="text-center p-6 bg-white rounded-xl shadow-md">
+              <div class="text-4xl md:text-5xl font-display font-bold text-primary-600 mb-2">
+                {milestone.year}
+              </div>
+              <h3 class="text-lg font-semibold text-secondary-900 mb-2">{milestone.title}</h3>
+              <p class="text-secondary-600 text-sm">{milestone.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Our Values</h2>
+          <p class="section-subtitle">
+            What makes us different
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl">✨</span>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-secondary-900 mb-3">Quality First</h3>
+            <p class="text-secondary-600">
+              We never compromise on quality. From products to techniques, we ensure the best for our clients.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl">🤝</span>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-secondary-900 mb-3">Client Trust</h3>
+            <p class="text-secondary-600">
+              Building lasting relationships with our clients through honesty, transparency, and exceptional service.
+            </p>
+          </div>
+
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-3xl">📚</span>
+            </div>
+            <h3 class="text-xl font-display font-semibold text-secondary-900 mb-3">Continuous Learning</h3>
+            <p class="text-secondary-600">
+              We stay updated with the latest trends and techniques through regular training and workshops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 md:py-24 bg-primary-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Meet Our Team</h2>
+          <p class="section-subtitle">
+            The talented artists behind Bahurani
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {team.map((member) => (
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+              <div class="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 overflow-hidden">
+                <img
+                  src={member.image}
+                  alt={`${member.name} - ${member.role}`}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover"
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 400%22%3E%3Crect fill=%22%23fce7f3%22 width=%22400%22 height=%22400%22/%3E%3Ctext fill=%22%23db2777%22 font-family=%22sans-serif%22 font-size=%2280%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E👩‍🎨%3C/text%3E%3C/svg%3E'"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-display font-semibold text-secondary-900">{member.name}</h3>
+                <p class="text-primary-600 font-medium mb-3">{member.role}</p>
+                <p class="text-secondary-600 text-sm">{member.bio}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-secondary-900 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+          Experience the Bahurani Difference
+        </h2>
+        <p class="text-lg text-secondary-300 mb-8 max-w-2xl mx-auto">
+          Book your appointment today and let us help you look and feel your best.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-primary bg-primary-600 hover:bg-primary-700 text-white">
+            Book Appointment
+          </a>
+          <a href="/services" class="btn-secondary border-white text-white hover:bg-white hover:text-secondary-900">
+            View Services
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

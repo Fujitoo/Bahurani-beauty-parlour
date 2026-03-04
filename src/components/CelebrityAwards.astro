@@ -1,0 +1,116 @@
+---
+/**
+ * Celebrity & Awards Component
+ * 
+ * IMAGE PLACEMENT:
+ * Place your images in:
+ * - /public/images/portfolio/celebrity/ - Celebrity meetup and seminar photos
+ * - /public/images/portfolio/awards/    - Award ceremony photos
+ * 
+ * Update the src paths below to match your actual image filenames.
+ */
+
+interface CelebrityAwardItem {
+  src: string;
+  alt: string;
+  caption: string;
+  type: 'seminar' | 'award' | 'celebrity';
+}
+
+// TODO: Replace with your actual image filenames
+const items: CelebrityAwardItem[] = [
+  // SEMINAR: /public/images/portfolio/celebrity/
+  {
+    src: '/images/portfolio/celebrity/celebrity-1.jpg',
+    alt: 'Makeup seminar presentation',
+    caption: 'Makeup Seminar - Sharing techniques with aspiring artists',
+    type: 'seminar',
+  },
+  // CELEBRITY: /public/images/portfolio/celebrity/
+  {
+    src: '/images/portfolio/celebrity/celebrity-2.jpg',
+    alt: 'Celebrity meetup event',
+    caption: 'Special meetup with industry celebrities',
+    type: 'celebrity',
+  },
+  // AWARDS: /public/images/portfolio/awards/
+  {
+    src: '/images/portfolio/awards/award-1.jpg',
+    alt: 'Best Makeup Artist Award',
+    caption: 'Best Makeup Artist Award - Varanasi Beauty Awards 2024',
+    type: 'award',
+  },
+  // CELEBRITY: /public/images/portfolio/celebrity/
+  {
+    src: '/images/portfolio/celebrity/celebrity-3.jpg',
+    alt: 'Industry event appearance',
+    caption: 'Guest appearance at beauty industry gala',
+    type: 'celebrity',
+  },
+  // AWARDS: /public/images/portfolio/awards/
+  {
+    src: '/images/portfolio/awards/award-2.jpg',
+    alt: 'Excellence in Beauty Services award',
+    caption: 'Excellence in Beauty Services Recognition',
+    type: 'award',
+  },
+  // CELEBRITY: /public/images/portfolio/celebrity/
+  {
+    src: '/images/portfolio/celebrity/celebrity-4.jpg',
+    alt: 'Celebrity makeup session',
+    caption: 'Behind the scenes with renowned personalities',
+    type: 'celebrity',
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Celebrity Moments & Achievements</h2>
+      <p class="section-subtitle">
+        Recognized excellence and memorable moments with industry leaders
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {items.map((item) => (
+        <div class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <div class="aspect-[4/3] overflow-hidden bg-secondary-100 relative">
+            <img
+              src={item.src}
+              alt={item.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%239ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E{item.type === 'seminar' ? 'Seminar Photo' : item.type === 'award' ? 'Award Photo' : 'Celebrity Photo'}%3C/text%3E%3C/svg%3E'"
+            />
+            <div class="absolute top-3 left-3">
+              {item.type === 'seminar' && (
+                <span class="bg-primary-600 text-white text-xs font-medium px-3 py-1 rounded-full">Seminar</span>
+              )}
+              {item.type === 'award' && (
+                <span class="bg-yellow-500 text-white text-xs font-medium px-3 py-1 rounded-full">🏆 Award</span>
+              )}
+              {item.type === 'celebrity' && (
+                <span class="bg-purple-600 text-white text-xs font-medium px-3 py-1 rounded-full">⭐ Celebrity</span>
+              )}
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="text-secondary-700 text-sm leading-relaxed">{item.caption}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="/portfolio#celebrity" class="text-primary-600 hover:text-primary-700 font-medium inline-flex items-center transition-colors">
+        View More Celebrity Moments
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

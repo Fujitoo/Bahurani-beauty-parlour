@@ -1,0 +1,71 @@
+---
+/**
+ * Featured Portfolio Component (Homepage Preview)
+ * 
+ * IMAGE PLACEMENT:
+ * Place your featured images in: /public/images/portfolio/
+ * Update the src paths below to match your actual image filenames.
+ */
+
+interface FeaturedImage {
+  src: string;
+  alt: string;
+  category: string;
+}
+
+// TODO: Replace with your actual image filenames
+const featuredImages: FeaturedImage[] = [
+  // BRIDAL: /public/images/portfolio/bridal/
+  { src: '/images/portfolio/bridal/bridal-1.jpg', alt: 'Traditional bridal makeup by Basumati Verma', category: 'Bridal' },
+  { src: '/images/portfolio/bridal/bridal-2.jpg', alt: 'Contemporary bridal makeup look', category: 'Bridal' },
+  // MAKEUP: /public/images/portfolio/makeup/
+  { src: '/images/portfolio/makeup/party-1.jpg', alt: 'Glamorous party makeup', category: 'Party' },
+  { src: '/images/portfolio/makeup/party-2.jpg', alt: 'Festive makeup look', category: 'Party' },
+  // CELEBRITY: /public/images/portfolio/celebrity/
+  { src: '/images/portfolio/celebrity/celebrity-1.jpg', alt: 'Celebrity meetup event', category: 'Celebrity' },
+  // AWARDS: /public/images/portfolio/awards/
+  { src: '/images/portfolio/awards/award-1.jpg', alt: 'Award ceremony recognition', category: 'Awards' },
+];
+---
+
+<section class="py-16 md:py-24 bg-gradient-to-br from-primary-50 to-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Featured Work</h2>
+      <p class="section-subtitle">
+        A glimpse of our stunning transformations and memorable moments
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-10">
+      {featuredImages.map((image) => (
+        <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
+          <div class="aspect-square overflow-hidden bg-secondary-100">
+            <img
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 300%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22300%22 height=%22300%22/%3E%3Ctext fill=%22%239ca3af%22 font-family=%22sans-serif%22 font-size=%2214%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3E{image.category}%3C/text%3E%3C/svg%3E'"
+            />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-0 left-0 right-0 p-3">
+              <span class="text-white text-xs font-medium bg-primary-600 px-2 py-1 rounded-full">{image.category}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a href="/portfolio" class="btn-primary inline-flex items-center">
+        View Full Portfolio
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

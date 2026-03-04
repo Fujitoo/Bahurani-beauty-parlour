@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FeaturedPortfolio from '../components/FeaturedPortfolio.astro';
+import CelebrityAwards from '../components/CelebrityAwards.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
+
+const services = [
+  {
+    icon: '💒',
+    title: 'Bridal Makeup',
+    description: 'Complete bridal makeup package with traditional and contemporary looks for your special day.',
+    price: '₹8,000',
+    features: ['Pre-bridal consultation', 'Trial session', 'Full day touch-ups', 'Premium products'],
+    href: '/services#bridal'
+  },
+  {
+    icon: '✨',
+    title: 'HD Bridal Makeup',
+    description: 'High-definition makeup that looks flawless in person and in photographs.',
+    price: '₹15,000',
+    features: ['HD airbrush technique', 'Long-lasting formula', 'Photo-ready finish', 'Luxury brands'],
+    href: '/services#hd-bridal'
+  },
+  {
+    icon: '🎉',
+    title: 'Party Makeup',
+    description: 'Glamorous makeup for parties, receptions, and special occasions.',
+    price: '₹2,500',
+    features: ['Customized looks', 'Quick service', 'Event-appropriate styling', 'Touch-up kit'],
+    href: '/services#party'
+  },
+  {
+    icon: '💍',
+    title: 'Engagement Makeup',
+    description: 'Elegant and romantic makeup for your engagement ceremony.',
+    price: '₹5,000',
+    features: ['Soft glam looks', 'Photography-friendly', 'Traditional touches', 'Jewelry coordination'],
+    href: '/services#engagement'
+  },
+  {
+    icon: '💇‍♀️',
+    title: 'Hair Styling',
+    description: 'Professional hair styling for all occasions - from bridal dos to party curls.',
+    price: '₹1,500',
+    features: ['Bridal hairstyles', 'Open hair styling', 'Hair accessories', 'Hair treatment add-ons'],
+    href: '/services#hair'
+  },
+  {
+    icon: '👘',
+    title: 'Saree Draping',
+    description: 'Expert saree draping in various styles - traditional, modern, and fusion.',
+    price: '₹800',
+    features: ['Multiple styles', 'Secure draping', 'Pleat perfection', 'Accessory styling'],
+    href: '/services#saree'
+  },
+  {
+    icon: '🌸',
+    title: 'Facial & Skin Care',
+    description: 'Rejuvenating facials and skin care treatments for glowing skin.',
+    price: '₹1,200',
+    features: ['Deep cleansing', 'Skin brightening', 'Anti-aging treatments', 'Customized care'],
+    href: '/services#facial'
+  },
+  {
+    icon: '🎨',
+    title: 'Mehndi Application',
+    description: 'Beautiful mehndi designs for brides and special occasions.',
+    price: '₹2,000',
+    features: ['Traditional designs', 'Modern patterns', 'Natural henna', 'Long-lasting color'],
+    href: '/services#mehndi'
+  },
+  {
+    icon: '📚',
+    title: 'Makeup Training Courses',
+    description: 'Professional makeup courses from beginner to advanced levels.',
+    price: '₹25,000',
+    features: ['Hands-on training', 'Certificate provided', 'Product knowledge', 'Career guidance'],
+    href: '/services#academy'
+  },
+];
+
+const whyChooseUs = [
+  {
+    icon: '🏆',
+    title: 'Expert Artists',
+    description: 'Trained professionals with years of experience in bridal and party makeup.'
+  },
+  {
+    icon: '💄',
+    title: 'Premium Products',
+    description: 'We use only high-quality, skin-safe products from trusted international brands.'
+  },
+  {
+    icon: '🏠',
+    title: 'Hygienic Studio',
+    description: 'Clean, sanitized tools and a comfortable, welcoming environment.'
+  },
+  {
+    icon: '💰',
+    title: 'Affordable Pricing',
+    description: 'Quality services at competitive prices with transparent packages.'
+  },
+];
+---
+
+<BaseLayout title="Best Bridal Makeup Artist in Varanasi | Bahurani Beauty Parlour">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title="Enhance Your Natural Beauty"
+      subtitle="Professional bridal makeup, party makeup & expert makeup training in Varanasi"
+      ctaText="Book Appointment"
+      ctaLink="/contact"
+      secondaryCtaText="View Services"
+      secondaryCtaLink="/services"
+    />
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Our Services</h2>
+          <p class="section-subtitle">
+            From bridal glam to professional training, we offer comprehensive beauty solutions
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {services.map((service) => (
+            <ServiceCard
+              icon={service.icon}
+              title={service.title}
+              description={service.description}
+              price={service.price}
+              features={service.features}
+              href={service.href}
+            />
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/services" class="btn-primary">
+            View All Services
+            <svg class="w-5 h-5 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-primary-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Why Choose Bahurani?</h2>
+          <p class="section-subtitle">
+            We're committed to making you look and feel your absolute best
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          {whyChooseUs.map((item) => (
+            <div class="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+              <div class="text-4xl mb-4">{item.icon}</div>
+              <h3 class="text-lg font-display font-semibold text-secondary-900 mb-2">{item.title}</h3>
+              <p class="text-secondary-600 text-sm">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Portfolio Section -->
+    <FeaturedPortfolio />
+
+    <!-- Celebrity & Awards Section -->
+    <CelebrityAwards />
+
+    <!-- Google Reviews Section -->
+    <GoogleReviews />
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 bg-secondary-900 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+          Ready to Look Stunning?
+        </h2>
+        <p class="text-lg text-secondary-300 mb-8 max-w-2xl mx-auto">
+          Book your appointment today and let our expert artists bring out your natural beauty.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contact" class="btn-primary bg-primary-600 hover:bg-primary-700 text-white">
+            Book Now
+          </a>
+          <a href="tel:+919559400986" class="btn-secondary border-white text-white hover:bg-white hover:text-secondary-900">
+            📞 +91 95594 00986
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

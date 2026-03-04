@@ -1,0 +1,15 @@
+# Robots.txt for Bahurani Beauty Parlour
+# https://bahuranibeauty.com
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bahuranibeauty.com/sitemap.xml
+
+# Crawl-delay (optional, polite crawling)
+Crawl-delay: 1
+
+# Allow all pages (no restrictions)
+# The site is small and all pages should be indexed

@@ -1,0 +1,234 @@
+---
+/**
+ * Portfolio Gallery Component
+ * 
+ * IMAGE PLACEMENT:
+ * Place your portfolio images in: /public/images/portfolio/
+ * 
+ * Folder structure:
+ * - /public/images/portfolio/bridal/    - Bridal makeup photos
+ * - /public/images/portfolio/makeup/    - Party and HD makeup photos  
+ * - /public/images/portfolio/parlour/   - Parlour interior photos
+ * - /public/images/portfolio/celebrity/ - Celebrity meetup photos
+ * - /public/images/portfolio/awards/    - Award ceremony photos
+ * 
+ * Update the src paths below to match your actual image filenames.
+ * Example: src: '/images/portfolio/bridal/bridal-look-01.jpg'
+ */
+
+interface PortfolioImage {
+  src: string;
+  alt: string;
+  category: 'bridal' | 'party' | 'interior' | 'celebrity' | 'awards';
+  caption?: string;
+}
+
+interface GallerySection {
+  id: string;
+  title: string;
+  images: PortfolioImage[];
+}
+
+// TODO: Replace placeholder paths with your actual image filenames
+const gallerySections: GallerySection[] = [
+  {
+    id: 'bridal',
+    title: 'Bridal Transformations',
+    images: [
+      // PLACE YOUR IMAGES IN: /public/images/portfolio/bridal/
+      { src: '/images/portfolio/bridal/bridal-1.jpg', alt: 'Traditional bridal makeup by Basumati Verma', category: 'bridal', caption: 'Traditional bridal glow' },
+      { src: '/images/portfolio/bridal/bridal-2.jpg', alt: 'Contemporary bridal makeup look', category: 'bridal', caption: 'Contemporary bride' },
+      { src: '/images/portfolio/bridal/bridal-3.jpg', alt: 'Royal bridal elegance makeup', category: 'bridal', caption: 'Royal bridal elegance' },
+      { src: '/images/portfolio/bridal/bridal-4.jpg', alt: 'Soft glam bridal makeup', category: 'bridal', caption: 'Soft glam bride' },
+    ],
+  },
+  {
+    id: 'party',
+    title: 'Makeup Looks',
+    images: [
+      // PLACE YOUR IMAGES IN: /public/images/portfolio/makeup/
+      { src: '/images/portfolio/makeup/party-1.jpg', alt: 'Party makeup look 1', category: 'party', caption: 'Glamorous evening look' },
+      { src: '/images/portfolio/makeup/party-2.jpg', alt: 'Party makeup look 2', category: 'party', caption: 'Festive glam' },
+      { src: '/images/portfolio/makeup/party-3.jpg', alt: 'Party makeup look 3', category: 'party', caption: 'Reception ready' },
+      { src: '/images/portfolio/makeup/party-4.jpg', alt: 'Party makeup look 4', category: 'party', caption: 'Cocktail party style' },
+    ],
+  },
+  {
+    id: 'celebrity',
+    title: 'Celebrity Moments',
+    images: [
+      // PLACE YOUR IMAGES IN: /public/images/portfolio/celebrity/
+      { src: '/images/portfolio/celebrity/celebrity-1.jpg', alt: 'Celebrity meetup 1', category: 'celebrity', caption: 'Meet & greet with local celebrities' },
+      { src: '/images/portfolio/celebrity/celebrity-2.jpg', alt: 'Celebrity meetup 2', category: 'celebrity', caption: 'Makeup seminar presentation' },
+      { src: '/images/portfolio/celebrity/celebrity-3.jpg', alt: 'Celebrity meetup 3', category: 'celebrity', caption: 'Industry event appearance' },
+    ],
+  },
+  {
+    id: 'awards',
+    title: 'Awards & Recognition',
+    images: [
+      // PLACE YOUR IMAGES IN: /public/images/portfolio/awards/
+      { src: '/images/portfolio/awards/award-1.jpg', alt: 'Award ceremony 1', category: 'awards', caption: 'Best Makeup Artist Award' },
+      { src: '/images/portfolio/awards/award-2.jpg', alt: 'Award ceremony 2', category: 'awards', caption: 'Excellence in Beauty Services' },
+      { src: '/images/portfolio/awards/award-3.jpg', alt: 'Award ceremony 3', category: 'awards', caption: 'Community Recognition' },
+    ],
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4">
+    {gallerySections.map((section) => (
+      <div id={section.id} class="mb-16 last:mb-0">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-secondary-900 mb-8 text-center">
+          {section.title}
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+          {section.images.map((image) => (
+            <div class="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer portfolio-item" data-src={image.src} data-alt={image.alt} data-caption={image.caption || ''}>
+              <div class="aspect-[3/4] overflow-hidden bg-secondary-100">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 300 400%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22300%22 height=%22400%22/%3E%3Ctext fill=%22%239ca3af%22 font-family=%22sans-serif%22 font-size=%2216%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage Placeholder%3C/text%3E%3C/svg%3E'"
+                />
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <p class="text-white text-sm font-medium">{image.caption || image.alt}</p>
+                </div>
+              </div>
+              <div class="absolute top-3 right-3 bg-white/90 rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="w-5 h-5 text-secondary-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                </svg>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-[100] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Image lightbox">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white hover:text-secondary-300 transition-colors z-10" aria-label="Close lightbox">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  
+  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-secondary-300 transition-colors z-10 p-2" aria-label="Previous image">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+  
+  <div class="max-w-5xl max-h-[85vh] flex flex-col items-center">
+    <img id="lightbox-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg" />
+    <p id="lightbox-caption" class="text-white text-center mt-4 text-lg font-medium"></p>
+  </div>
+  
+  <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-secondary-300 transition-colors z-10 p-2" aria-label="Next image">
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</div>
+
+<script>
+  // Lightbox functionality
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  let currentIndex = 0;
+  const allImages: { src: string; alt: string; caption: string }[] = [];
+  
+  // Collect all images
+  portfolioItems.forEach((item, index) => {
+    const el = item as HTMLElement;
+    allImages.push({
+      src: el.dataset.src || '',
+      alt: el.dataset.alt || '',
+      caption: el.dataset.caption || '',
+    });
+    
+    el.addEventListener('click', () => openLightbox(index));
+  });
+  
+  function openLightbox(index: number) {
+    currentIndex = index;
+    updateLightboxImage();
+    lightbox?.classList.remove('hidden');
+    lightbox?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    lightbox?.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  
+  function updateLightboxImage() {
+    const image = allImages[currentIndex];
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightboxCaption.textContent = image.caption;
+  }
+  
+  function showNext() {
+    currentIndex = (currentIndex + 1) % allImages.length;
+    updateLightboxImage();
+  }
+  
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + allImages.length) % allImages.length;
+    updateLightboxImage();
+  }
+  
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxNext?.addEventListener('click', showNext);
+  lightboxPrev?.addEventListener('click', showPrev);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox?.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+
+<style>
+  #lightbox {
+    backdrop-filter: blur(4px);
+  }
+  
+  #lightbox-image {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
