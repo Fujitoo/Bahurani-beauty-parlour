@@ -1,0 +1,11 @@
+# Netlify Redirects for Bahurani Beauty Parlour
+# https://docs.netlify.com/routing/redirects/
+
+# Ensure trailing slashes for clean URLs
+/portfolio    /portfolio/   301
+/services     /services/    301
+/about        /about/       301
+/contact      /contact/     301
+
+# Custom 404 page
+/*            /404.html     404

@@ -1,23 +1,60 @@
+# Netlify Configuration for Bahurani Beauty Parlour
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
 [build]
   command = "npm run build"
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"
 
-# Cache control for Astro build assets
+# Cache Astro build assets aggressively (they have content hashes)
 [[headers]]
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# HTML files should not be cached aggressively
+# HTML should always be fresh
 [[headers]]
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# SPA fallback for client-side routing (if needed)
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Redirect rules for static site
+[[redirects]]
+  from = "/portfolio"
+  to = "/portfolio/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact/"
+  status = 301
+  force = true
+
+# 404 redirect
 [[redirects]]
   from = "/*"
   to = "/404.html"
