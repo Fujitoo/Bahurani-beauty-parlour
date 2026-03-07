@@ -1,10 +1,9 @@
 ---
 /**
  * Featured Portfolio Component (Homepage Preview)
- * 
- * IMAGE PLACEMENT:
- * Place your featured images in: /public/images/portfolio/
- * Update the src paths below to match your actual image filenames.
+ *
+ * Shows 6 featured bridal images from the portfolio.
+ * Add more images to /public/images/portfolio/bridal/ to expand the gallery.
  */
 
 interface FeaturedImage {
@@ -13,18 +12,13 @@ interface FeaturedImage {
   category: string;
 }
 
-// TODO: Replace with your actual image filenames
+// Featured bridal looks - update with your actual image filenames
 const featuredImages: FeaturedImage[] = [
-  // BRIDAL: /public/images/portfolio/bridal/
   { src: '/images/portfolio/bridal/bridal-1.jpg', alt: 'Traditional bridal makeup by Basumati Verma', category: 'Bridal' },
   { src: '/images/portfolio/bridal/bridal-2.jpg', alt: 'Contemporary bridal makeup look', category: 'Bridal' },
-  // MAKEUP: /public/images/portfolio/makeup/
-  { src: '/images/portfolio/makeup/party-1.jpg', alt: 'Glamorous party makeup', category: 'Party' },
-  { src: '/images/portfolio/makeup/party-2.jpg', alt: 'Festive makeup look', category: 'Party' },
-  // CELEBRITY: /public/images/portfolio/celebrity/
-  { src: '/images/portfolio/celebrity/celebrity-1.jpg', alt: 'Celebrity meetup event', category: 'Celebrity' },
-  // AWARDS: /public/images/portfolio/awards/
-  { src: '/images/portfolio/awards/award-1.jpg', alt: 'Award ceremony recognition', category: 'Awards' },
+  { src: '/images/portfolio/bridal/bridal-3.jpg', alt: 'Royal bridal elegance makeup', category: 'Bridal' },
+  { src: '/images/portfolio/bridal/bridal-4.jpg', alt: 'Soft glam bridal makeup', category: 'Bridal' },
+  // Add more bridal images here as you add them to /public/images/portfolio/bridal/
 ];
 ---
 

@@ -1,70 +1,29 @@
 ---
 /**
  * Celebrity & Awards Component
- * 
- * IMAGE PLACEMENT:
- * Place your images in:
- * - /public/images/portfolio/celebrity/ - Celebrity meetup and seminar photos
- * - /public/images/portfolio/awards/    - Award ceremony photos
- * 
- * Update the src paths below to match your actual image filenames.
+ *
+ * This section showcases celebrity meetups, seminars, and awards.
+ * Add images to /public/images/portfolio/celebrity/ and /public/images/portfolio/awards/
+ * then update the src paths below.
+ *
+ * Currently hidden until images are added.
  */
 
-interface CelebrityAwardItem {
-  src: string;
-  alt: string;
-  caption: string;
-  type: 'seminar' | 'award' | 'celebrity';
-}
-
-// TODO: Replace with your actual image filenames
-const items: CelebrityAwardItem[] = [
-  // SEMINAR: /public/images/portfolio/celebrity/
-  {
-    src: '/images/portfolio/celebrity/celebrity-1.jpg',
-    alt: 'Makeup seminar presentation',
-    caption: 'Makeup Seminar - Sharing techniques with aspiring artists',
-    type: 'seminar',
-  },
-  // CELEBRITY: /public/images/portfolio/celebrity/
-  {
-    src: '/images/portfolio/celebrity/celebrity-2.jpg',
-    alt: 'Celebrity meetup event',
-    caption: 'Special meetup with industry celebrities',
-    type: 'celebrity',
-  },
-  // AWARDS: /public/images/portfolio/awards/
-  {
-    src: '/images/portfolio/awards/award-1.jpg',
-    alt: 'Best Makeup Artist Award',
-    caption: 'Best Makeup Artist Award - Varanasi Beauty Awards 2024',
-    type: 'award',
-  },
-  // CELEBRITY: /public/images/portfolio/celebrity/
-  {
-    src: '/images/portfolio/celebrity/celebrity-3.jpg',
-    alt: 'Industry event appearance',
-    caption: 'Guest appearance at beauty industry gala',
-    type: 'celebrity',
-  },
-  // AWARDS: /public/images/portfolio/awards/
-  {
-    src: '/images/portfolio/awards/award-2.jpg',
-    alt: 'Excellence in Beauty Services award',
-    caption: 'Excellence in Beauty Services Recognition',
-    type: 'award',
-  },
-  // CELEBRITY: /public/images/portfolio/celebrity/
-  {
-    src: '/images/portfolio/celebrity/celebrity-4.jpg',
-    alt: 'Celebrity makeup session',
-    caption: 'Behind the scenes with renowned personalities',
-    type: 'celebrity',
-  },
+// Items array - add your images here when available
+const items: any[] = [
+  // Example:
+  // {
+  //   src: '/images/portfolio/celebrity/celebrity-1.jpg',
+  //   alt: 'Makeup seminar presentation',
+  //   caption: 'Makeup Seminar - Sharing techniques with aspiring artists',
+  //   type: 'seminar',
+  // },
 ];
 ---
 
-<section class="py-16 md:py-24 bg-white">
+<!-- Section hidden until images are added -->
+{items.length > 0 && (
+  <section class="py-16 md:py-24 bg-white">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       <h2 class="section-title">Celebrity Moments & Achievements</h2>
@@ -114,3 +73,4 @@ const items: CelebrityAwardItem[] = [
     </div>
   </div>
 </section>
+)}

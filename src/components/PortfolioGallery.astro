@@ -29,50 +29,41 @@ interface GallerySection {
   images: PortfolioImage[];
 }
 
-// TODO: Replace placeholder paths with your actual image filenames
+// Gallery sections - add your images as you add them to the folders
 const gallerySections: GallerySection[] = [
   {
     id: 'bridal',
     title: 'Bridal Transformations',
     images: [
-      // PLACE YOUR IMAGES IN: /public/images/portfolio/bridal/
       { src: '/images/portfolio/bridal/bridal-1.jpg', alt: 'Traditional bridal makeup by Basumati Verma', category: 'bridal', caption: 'Traditional bridal glow' },
       { src: '/images/portfolio/bridal/bridal-2.jpg', alt: 'Contemporary bridal makeup look', category: 'bridal', caption: 'Contemporary bride' },
       { src: '/images/portfolio/bridal/bridal-3.jpg', alt: 'Royal bridal elegance makeup', category: 'bridal', caption: 'Royal bridal elegance' },
       { src: '/images/portfolio/bridal/bridal-4.jpg', alt: 'Soft glam bridal makeup', category: 'bridal', caption: 'Soft glam bride' },
+      // Add more bridal images here as you add them to /public/images/portfolio/bridal/
     ],
   },
-  {
-    id: 'party',
-    title: 'Makeup Looks',
-    images: [
-      // PLACE YOUR IMAGES IN: /public/images/portfolio/makeup/
-      { src: '/images/portfolio/makeup/party-1.jpg', alt: 'Party makeup look 1', category: 'party', caption: 'Glamorous evening look' },
-      { src: '/images/portfolio/makeup/party-2.jpg', alt: 'Party makeup look 2', category: 'party', caption: 'Festive glam' },
-      { src: '/images/portfolio/makeup/party-3.jpg', alt: 'Party makeup look 3', category: 'party', caption: 'Reception ready' },
-      { src: '/images/portfolio/makeup/party-4.jpg', alt: 'Party makeup look 4', category: 'party', caption: 'Cocktail party style' },
-    ],
-  },
-  {
-    id: 'celebrity',
-    title: 'Celebrity Moments',
-    images: [
-      // PLACE YOUR IMAGES IN: /public/images/portfolio/celebrity/
-      { src: '/images/portfolio/celebrity/celebrity-1.jpg', alt: 'Celebrity meetup 1', category: 'celebrity', caption: 'Meet & greet with local celebrities' },
-      { src: '/images/portfolio/celebrity/celebrity-2.jpg', alt: 'Celebrity meetup 2', category: 'celebrity', caption: 'Makeup seminar presentation' },
-      { src: '/images/portfolio/celebrity/celebrity-3.jpg', alt: 'Celebrity meetup 3', category: 'celebrity', caption: 'Industry event appearance' },
-    ],
-  },
-  {
-    id: 'awards',
-    title: 'Awards & Recognition',
-    images: [
-      // PLACE YOUR IMAGES IN: /public/images/portfolio/awards/
-      { src: '/images/portfolio/awards/award-1.jpg', alt: 'Award ceremony 1', category: 'awards', caption: 'Best Makeup Artist Award' },
-      { src: '/images/portfolio/awards/award-2.jpg', alt: 'Award ceremony 2', category: 'awards', caption: 'Excellence in Beauty Services' },
-      { src: '/images/portfolio/awards/award-3.jpg', alt: 'Award ceremony 3', category: 'awards', caption: 'Community Recognition' },
-    ],
-  },
+  // Add these sections when you have images:
+  // {
+  //   id: 'party',
+  //   title: 'Makeup Looks',
+  //   images: [
+  //     // Add images to /public/images/portfolio/makeup/ then reference them here
+  //   ],
+  // },
+  // {
+  //   id: 'celebrity',
+  //   title: 'Celebrity Moments',
+  //   images: [
+  //     // Add images to /public/images/portfolio/celebrity/ then reference them here
+  //   ],
+  // },
+  // {
+  //   id: 'awards',
+  //   title: 'Awards & Recognition',
+  //   images: [
+  //     // Add images to /public/images/portfolio/awards/ then reference them here
+  //   ],
+  // },
 ];
 ---
 
